@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.Write("First Name: ");
-            int name1 = int.Parse(Console.ReadLine());
-            Console.Write("Last Name: ");
-            var name2 = Console.ReadLine();
-            var name3 = $"The full name is {name1} {name2}";
-            Console.WriteLine($"The full name is {name1} {name2}");
+            Console.Write("x: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("y: ");
+            int y = int.Parse(Console.ReadLine());
+            var z = $"The full name is {x} {y}";
+            Console.WriteLine($"{z}");
             Console.WriteLine("Hello, World!");
         }
     }
