@@ -10,7 +10,7 @@
             int y = int.Parse(Console.ReadLine());
             var z = $"The full name is {x} {y}";
             Console.WriteLine($"{z}");
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Hello, task1!");
         }
     }
 }
