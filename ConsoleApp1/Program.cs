@@ -1,14 +1,26 @@
-﻿namespace ConsoleApp1
+﻿using ConsoleApp1;
+using System.Net.Http.Headers;
+
+namespace ConsoleApp1
 {
-    internal class Program
+    public class Program
     {
-        private static int i;
-        private static int j;
+
+        /*        private static int i;
+                private static int j;*/
 
         static void Main(string[] args)
         {
-            var a = Num_Factorial(5);
-            Console.WriteLine(a);
+            var car2 = new Car();
+            var car3 = new Car();
+            var car4 = new Car();
+            var car5 = new Car();
+            car2.CarId = 1;
+            Console.WriteLine(car2.CarId);
+            
+
+            /*var a = Num_Factorial(5);
+            Console.WriteLine(a);*/
 
             /*var sum = Add(1, 2);
             var total_with_vat = sum + (0.13 * sum);
@@ -110,15 +122,15 @@
 
         }
 
-        public static int Num_Factorial(int number)
-        {
-            if (number == 0)
-            {
-                return 1;
-            }
-            return number *Num_Factorial(number - 1);
-        }
-    
+        /*  public static int Num_Factorial(int number)
+          {
+              if (number == 0)
+              {
+                  return 1;
+              }
+              return number *Num_Factorial(number - 1);
+          }*/
+
         /*static int Add(int a, int b)
         { 
             return a + b; 
