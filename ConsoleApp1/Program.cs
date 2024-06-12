@@ -7,7 +7,8 @@
 
         static void Main(string[] args)
         {
-            Num_Factorial(5);
+            var a = Num_Factorial(5);
+            Console.WriteLine(a);
 
             /*var sum = Add(1, 2);
             var total_with_vat = sum + (0.13 * sum);
@@ -111,7 +112,11 @@
 
         public static int Num_Factorial(int number)
         {
-            return number = Num_Factorial * (number - 1);
+            if (number == 0)
+            {
+                return 1;
+            }
+            return number *Num_Factorial(number - 1);
         }
     
         /*static int Add(int a, int b)
