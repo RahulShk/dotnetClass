@@ -1,16 +1,22 @@
-﻿namespace ConsoleApp1
+﻿using ConsoleApp1.Services;
+using ConsoleApp1.Services.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using System.Security.Authentication.ExtendedProtection;
+
+namespace ConsoleApp1
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("x: ");
-            int x = int.Parse(Console.ReadLine());
-            Console.Write("y: ");
-            int y = int.Parse(Console.ReadLine());
-            var z = $"The full name is {x} {y}";
-            Console.WriteLine($"{z}");
-            Console.WriteLine("Hello, World!");
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddSingleton<App>();
+            serviceCollection.AddSingleton<IUserInfoService, UserInfoService>();
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            var app = serviceProvider.GetService<App>();
+            app.Main(); 
         }
     }
 }
