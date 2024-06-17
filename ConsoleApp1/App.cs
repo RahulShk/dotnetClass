@@ -21,6 +21,7 @@ namespace ConsoleApp1
         {
             var isRunning = true;
             Console.WriteLine("Welcome to our contact adding software!");
+            SeedData();
             while (isRunning == true)
             {
                 Option();
@@ -248,6 +249,22 @@ namespace ConsoleApp1
             Console.WriteLine("  3 => Delete All User Info");
             Console.WriteLine("  4 => Update User Info");
             Console.WriteLine("--------------------------------------");
+        }
+        public void SeedData()
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                var user = new UserInfoModel()
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = $"{i} First Name",
+                    LastName = $"{i} Last Name",
+                    MiddleName = $"{i} Middle Name",
+                    Email = $"{i} Email",
+                    Phone = $"{i} Phone"
+                };
+                var response = _userInfoService.AddUserInfo(user);
+            }
         }
     }
 }
