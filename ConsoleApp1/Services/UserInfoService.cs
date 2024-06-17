@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ConsoleApp1.Model;
+using ConsoleApp1.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp1.Model;
-using ConsoleApp1.Services.Interfaces;
 
 namespace ConsoleApp1.Services
 {
@@ -47,9 +47,38 @@ namespace ConsoleApp1.Services
             return UserInfos.FirstOrDefault(x => x.Id == id);
         }
 
-        UserInfoModel IUserInfoService.GetUserInfoById()
+        public string UpdateFirstName(Guid id, string updatedFirstName)
         {
-            throw new NotImplementedException();
+            var item = UserInfos.Find(x => x.Id == id);
+            item.FirstName = updatedFirstName;
+            return "First Name updated Successfully!";
+        }
+
+        public string UpdateLastName(Guid id, string updatedLastName)
+        {
+            var item = UserInfos.Find(x => x.Id == id);
+            item.LastName = updatedLastName;
+            return "Last Name updated Successfully!";
+        }
+
+        public string UpdateMiddleName(Guid id, string updatedMiddleName)
+        {
+            var item = UserInfos.Find(x => x.Id == id);
+            item.MiddleName = updatedMiddleName;
+            return "Middle Name updated Successfully!";
+        }
+
+        public string UpdateEmail(Guid id, string updatedEmail)
+        {
+            var item = UserInfos.Find(x => x.Id == id);
+            item.Email = updatedEmail;
+            return "Email updated Successfully!";
+        }
+        public string UpdatePhoneNumber(Guid id, string phonenumber)
+        {
+            var item = UserInfos.Find(x => x.Id == id);
+            item.Phone = phonenumber;
+            return "Phone Number updated successfully!";
         }
     }
 }
