@@ -80,5 +80,15 @@ namespace ConsoleApp1.Services
             item.Phone = phonenumber;
             return "Phone Number updated successfully!";
         }
+
+        public List<UserInfoModel> Search(string searchParam)
+        { 
+            var result = UserInfos.Where(x => x.FirstName.ToLower().StartsWith(searchParam.ToLower()) ||
+                                              x.LastName.ToLower().StartsWith(searchParam.ToLower())  ||
+                                              x.MiddleName.ToLower().StartsWith(searchParam.ToLower())||
+                                              x.Email.ToLower().StartsWith(searchParam.ToLower())     ||
+                                              x.Phone.ToLower().StartsWith(searchParam.ToLower())).ToList();
+            return result;
+        }
     }
 }

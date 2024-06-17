@@ -27,5 +27,7 @@ namespace ConsoleApp1.Services.Interfaces
         public string UpdateEmail(Guid id, string updatedEmail);
 
         public string UpdatePhoneNumber(Guid id, string phonenumber);
+
+        public List<UserInfoModel> Search(string searchParam);
     }
 }

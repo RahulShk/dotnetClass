@@ -83,11 +83,13 @@ namespace ConsoleApp1
                         break;
 
                     case "2":
-                        ListAllUsers();
+                        var response2 = _userInfoService.GetAllUserInfo();
+                        ListAllUsers(response2);
                         break;
 
                     case "3":
-                        ListAllUsers();
+                        var response3 = _userInfoService.GetAllUserInfo();
+                        ListAllUsers(response3);
                         Console.Write("Enter the id of the user you want to delete.");
                         var id = Console.ReadLine();
                         Console.WriteLine("---------------------------------------------");
@@ -111,8 +113,9 @@ namespace ConsoleApp1
                         break;
 
                     case "4":
+                        var response4 = _userInfoService.GetAllUserInfo();
                         Console.WriteLine("---------------------------------------------");
-                        ListAllUsers();
+                        ListAllUsers(response4);
                         Console.WriteLine("---------------------------------------------");
                         Console.Write("Enter the id of the user you want to update: ");
                         var update_id = Console.ReadLine();
@@ -224,16 +227,23 @@ namespace ConsoleApp1
                             Console.WriteLine("You entered invalid id!");
                         }
                         break;
+
+                    case "5":
+                        Console.Write("Enter what you want to search: ");
+                        var searchParam = Console.ReadLine();
+                        var searchResult = _userInfoService.Search(searchParam);
+                        ListAllUsers(searchResult);
+                        break;
+
                     default:
                         Console.WriteLine("Please enter a valid number");
                         break;
                 }
             }
         }
-        public void ListAllUsers()
+        public void ListAllUsers(List<UserInfoModel> userInfos)
         {
-            var response2 = _userInfoService.GetAllUserInfo();
-            foreach (var item in response2)
+            foreach (var item in userInfos)
             {
                 Console.WriteLine($"Id: {item.Id}\n" + $"First Name: {item.FirstName}\n" + $"Last Name: {item.LastName}\n" + $"Middle Name: {item.MiddleName}\n" + $"Email: {item.Email}\n" + $"Phone Number: {item.Phone}");
             }
@@ -248,6 +258,7 @@ namespace ConsoleApp1
             Console.WriteLine("  2 => Get All User Info");
             Console.WriteLine("  3 => Delete All User Info");
             Console.WriteLine("  4 => Update User Info");
+            Console.WriteLine("  5 => Search");
             Console.WriteLine("--------------------------------------");
         }
         public void SeedData()
